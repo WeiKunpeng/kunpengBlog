@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wei.KunPengBlog.dao.ArticleDao" >
+
+    <resultMap id="BaseResultMap" type="com.wei.KunPengBlog.bean.Article" >
+        <id column="cid" property="cid" jdbcType="INTEGER" />
+        <result column="uid" property="uid" jdbcType="INTEGER" />
+        <result column="type" property="type" jdbcType="INTEGER" />
+        <result column="title" property="title" jdbcType="VARCHAR" />
+        <result column="content" property="content" jdbcType="VARCHAR" />
+        <result column="url" property="url" jdbcType="VARCHAR" />
+        <result column="tags" property="tags" jdbcType="VARCHAR" />
+        <result column="hits" property="hits" jdbcType="INTEGER" />
+        <result column="stars" property="stars" jdbcType="INTEGER" />
+        <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
+        <result column="update_time" property="update_time" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        uid,uid,type,title,content,url,tags,hits,stars,create_time,update_time
+    </sql>
+
+    <select id="allArticle" resultType="com.wei.KunPengBlog.bean.Article">
+        select
+        <include refid="Base_Column_List" />
+        from contents
+    </select>
+
+    <select id="queryByUid" parameterType="INTEGER" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from contents where uid=#{uid};
+    </select>
+
+    <select id="queryByCid"  parameterType="INTEGER" resultType="com.wei.KunPengBlog.bean.Article">
+        select
+        <include refid="Base_Column_List" />
+        from contents where cid=#{cid};
+    </select>
+
+    <select id="queryByTitle" parameterType="STRING" resultType="com.wei.KunPengBlog.bean.Article">
+        select
+        <include refid="Base_Column_List" />
+        from contents where title=#{title};
+    </select>
+
+
+    <select id="queryByType" parameterType="STRING" resultType="com.wei.KunPengBlog.bean.Article">
+        select
+        <include refid="Base_Column_List" />
+        from contents where type=#{type};
+    </select>
+
+    <!--<insert id="addOne" parameterType="com.wei.KunPengBlog.bean.User">-->
+        <!--INSERT-->
+        <!--into user(username,password,email,create_time)-->
+        <!--VALUE (#{username},#{password},#{email},now())-->
+    <!--</insert>-->
+</mapper>
