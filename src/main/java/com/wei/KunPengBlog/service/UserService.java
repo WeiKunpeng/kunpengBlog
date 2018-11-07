@@ -25,7 +25,7 @@ public class UserService {
 
         User user = useDao.queryByUsername(username);
 
-        System.out.printf(user.toString());
+        //System.out.printf(user.toString());
 
         if (user == null) {
             return new Result(0, "不存在用户名", null);

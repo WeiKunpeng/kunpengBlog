@@ -6,10 +6,7 @@ import com.wei.KunPengBlog.common.Result;
 import com.wei.KunPengBlog.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,7 +15,7 @@ import java.util.List;
  */
 
 
-@Controller
+@RestController
 @RequestMapping("/article")
 public class ArticleController {
 
@@ -53,7 +50,7 @@ public class ArticleController {
      */
 
 
-    @GetMapping("/{cid}")
+    @GetMapping("/queryByCid/{cid}")
     public Result queryByCid(@PathVariable int cid){
 
         Article article=articleService.queryByCid(cid);
@@ -77,7 +74,7 @@ public class ArticleController {
 
 
 
-    @GetMapping("/{uid}")
+    @GetMapping("/queryByUid/{uid}")
     public Result queryByUid(@PathVariable int uid){
 
         List<Article> list= articleService.queryByUid(uid);
@@ -99,7 +96,7 @@ public class ArticleController {
      * @param title
      * @return
      */
-    @GetMapping("/{title}")
+    @GetMapping("/queryByTitle/{title}")
     public Result queryByTitle(@PathVariable String title){
 
 
@@ -120,7 +117,7 @@ public class ArticleController {
      * @param type
      * @return
      */
-    @GetMapping("/{type}")
+    @GetMapping("/queryByType/{type}")
     public Result queryByType(@PathVariable String type){
 
         List<Article> list= articleService.queryByType(type);

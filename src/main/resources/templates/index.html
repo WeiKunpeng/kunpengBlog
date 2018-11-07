@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="/images/icon.png"
+          media="screen" />
+    <title>鲲鹏博客</title>
+
+    <link rel="stylesheet" href="/css/base.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+    <script src="/js/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="box-position">
+    <script src="/js/login.js"></script>
+    <div class="login-system">
+        <div class="top">
+            <h1>鲲鹏博客</h1>
+        </div>
+        <input type="hidden" name="isLoc" value="true" />
+        <ul class="flexbox">
+            <li class="flexcon">
+                <div class="borderbox">
+                    <input class="ipt" placeholder="请输入用户名" id="userName" />
+                </div>
+            </li>
+        </ul>
+
+        <ul class="flexbox">
+            <li class="flexcon">
+                <div class="borderbox">
+                    <input type="password" class="ipt" placeholder="请输入密码" id="password" />
+                </div>
+            </li>
+        </ul>
+        <br/>
+
+        <a href="#" class="btn-green" id="clickBtn">登录</a>
+        <a href="/account/unlock" class="btn-green">注册</a>
+
+    </div>
+    <div class="tips-pop" id="tipPop">请正确填写表单信息</div>
+</div>
+</body>
+</html>
