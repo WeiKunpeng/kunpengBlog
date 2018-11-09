@@ -1,13 +1,102 @@
-<!DOCTYPE html>
-<html  lang="zh" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
 <head>
-    <meta charset="UTF-8" />
-    <title>Title</title>
+    <meta charset="utf-8" />
+    <meta content="text/html;charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <!--{-->
+    <!--.container {-->
+    <!--padding-right: 15px;-->
+    <!--padding-left: 15px;-->
+    <!--margin-right: auto;-->
+    <!--margin-left: auto;-->
+    <!--}-->
+    <!--@media (min-width: 768px) {-->
+    <!--.container {-->
+    <!--width: 750px;-->
+    <!--}-->
+    <!--}-->
+    <!--@media (min-width: 992px) {-->
+    <!--.container {-->
+    <!--width: 970px;-->
+    <!--}-->
+    <!--}-->
+    <!--@media (min-width: 1200px) {-->
+    <!--.container {-->
+    <!--width: 1170px;-->
+    <!--}-->
+    <!--}-->
+    <!--.container-fluid {-->
+    <!--padding-right: 15px;-->
+    <!--padding-left: 15px;-->
+    <!--margin-right: auto;-->
+    <!--margin-left: auto;-->
+    <!--}}-->
 </head>
 <body>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">欢迎来到鲲鹏博客</h3>
+    </div>
+    <div class="panel-body">
+        <span th:text="${user.username}"></span>
+    </div>
+</div>
+<div th:if="${not #lists.isEmpty(articleList)}">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">列表</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span th:text="文章标题"></span>
+                    <span th:text="类型"></span>
+                    <span th:text="标签"></span>
+                    <span th:text="点击量"></span>
+                    <span th:text="创建时间"></span>
+                    <span th:text="最后更新时间"></span>
+                </li>
+                <li class="list-group-item" th:each="article : ${articleList}">
+                    <span th:text="${article.title}"></span>
+                    <span th:text="${article.type}"></span>
+                    <span th:text="${article.tags}"></span>
+                    <span th:text="${article.hits}"></span>
+                    <span th:text="${article.create_time}"></span>
+                    <span th:text="${article.update_time}"></span>
+                    <!--<button class="btn" th:onlick="'getName(\''+${person.name}+'\');'">获得名字</button>-->
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8"><p style="background: gray">.col-md-8</p></div>
+        <div class="col-md-4"><p style="background: gray">.col-md-4</p></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4"><p style="background: gray">.col-md-4</p></div>
+        <div class="col-md-8"><p style="background: gray">.col-md-8</p></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4"><p style="background: pink">pink1</p></div>
+        <div class="col-md-4"><p style="background: pink">pink2</p></div>
+        <div class="col-md-4"><p style="background: pink">pink3</p></div>
+    </div>
 
 
-<h1>登陆成功</h1>
+<div class="container" />
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="css/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 </html>
+
+
+

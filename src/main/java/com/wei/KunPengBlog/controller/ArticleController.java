@@ -6,6 +6,7 @@ import com.wei.KunPengBlog.common.Result;
 import com.wei.KunPengBlog.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -75,17 +76,24 @@ public class ArticleController {
 
 
     @GetMapping("/queryByUid/{uid}")
-    public Result queryByUid(@PathVariable int uid){
+    public String queryByUid(@PathVariable int uid, Model model){
 
         List<Article> list= articleService.queryByUid(uid);
 
 
-        if(list==null){
-            return new Result(0,"该用户没有文章",null);
-        }
+//        if(list==null){
+//            return new Result(0,"该用户没有文章",null);
+//        }
+//
+//
+//        return new Result(1,"查询成功",list);
 
 
-        return new Result(1,"查询成功",list);
+
+        model.addAttribute("articleList",list);
+
+
+        return "articleList";
 
 
     }

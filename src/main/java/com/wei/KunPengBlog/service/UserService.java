@@ -90,4 +90,12 @@ public class UserService {
     }
 
 
+    public User queryByUsername(String username){
+
+
+
+        return useDao.queryByUsername(username);
+    }
+
+
 }
