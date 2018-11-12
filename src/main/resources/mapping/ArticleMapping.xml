@@ -17,7 +17,7 @@
     </resultMap>
 
     <sql id="Base_Column_List" >
-        uid,uid,type,title,content,url,tags,hits,stars,create_time,update_time
+        uid,uid,`type`,title,`desc`,content,url,tags,hits,stars,create_time,update_time
     </sql>
 
     <select id="allArticle" resultType="com.wei.KunPengBlog.bean.Article">

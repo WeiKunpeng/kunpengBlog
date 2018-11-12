@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css">
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
-    <link rel="stylesheet" href="../static/bootstrap-wysiwyg/index.css" type="text/css">
-    <script src="../static/js/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" />
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" />
+    <link rel="stylesheet" href="bootstrap-wysiwyg/index.css" type="text/css" />
+    <script src="js/jquery.min.js"></script>
     <!--<script src="/javascripts/jquery.min.js"></script>-->
-    <script src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <script src="../static/bootstrap-wysiwyg/bootstrap-wysiwyg.js"></script>
-    <script src="../static/js/jquery.hotkeys.js"></script>
-    <title>Title</title>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="bootstrap-wysiwyg/bootstrap-wysiwyg.js"></script>
+    <script src="js/jquery.hotkeys.js"></script>
+    <title>新建文章</title>
 </head>
 <body>
 
 <div class="blog-header">
     <h1 align="center">鲲鹏博客</h1>
 
-    <p align="center">记录你的点点滴滴</p>
+    <p align="center">记录点点滴滴</p>
 </div>
 
 <div class="container">
     <div style="margin-top:50px" class="input-group input-group-lg"><span class="input-group-addon"></span><input
-            type="text" placeholder="标题" name="title" class="form-control"></div>
+            type="text" placeholder="标题" name="title" class="form-control" /></div>
     <div style="margin-top:20px" class="input-group input-group-lg"><span class="input-group-addon"></span><input
-            type="text" placeholder="描述" name="title" class="form-control"></div>
+            type="text" placeholder="描述" name="title" class="form-control" /></div>
     <div style="margin-top:20px" data-role="editor-toolbar" data-target="#editor" class="btn-toolbar">
         <div class="btn-group"><a data-toggle="dropdown" title="Font" class="btn dropdown-toggle"><i
                 class="glyphicon glyphicon-font"></i><b class="caret"></b></a>
@@ -59,21 +59,25 @@
                 class="icon-link"></i></a>
 
             <div class="dropdown-menu input-append"><input placeholder="URL" type="text" data-edit="createLink"
-                                                           class="span2">
+                                                           class="span2" />
                 <button type="button" class="btn">Add</button>
             </div>
             <a data-edit="unlink" title="Remove Hyperlink" class="btn"><i class="icon-cut"></i></a></div>
         <div class="btn-group"><a id="pictureBtn" title="Insert picture (or just drag &amp; drop)" class="btn"><i
                 class="icon-picture"></i></a><input type="file" data-role="magic-overlay" data-target="#pictureBtn"
-                                                    data-edit="insertImage">
+                                                    data-edit="insertImage" />
 
             <div class="btn-group"><a data-edit="undo" title="Undo (Ctrl/Cmd+Z)" class="btn"><i
                     class="icon-undo"></i></a><a data-edit="redo" title="Redo (Ctrl/Cmd+Y)" class="btn"><i
                     class="icon-repeat"></i></a></div>
-            <input id="voiceBtn" type="text" data-edit="inserttext" x-webkit-speech=""></div>
+            <input id="voiceBtn" type="text" data-edit="inserttext" x-webkit-speech="" /></div>
     </div>
     <div id="editor"></div>
-  </div>
+
+
+    <p  th:text="111"></p>
+</div>
+
 
 <script>
     $(function () {
@@ -104,7 +108,8 @@
         };
         initToolbarBootstrapBindings();
         $('#editor').wysiwyg();
-        window.prettyPrint && prettyPrint();
+        window.prettyPrint &amp;&amp; prettyPrint();
+//        window.prettyPrint();
     })
 </script>
 

@@ -85,7 +85,7 @@ public class UserController {
 
                     model.addAttribute("articleList",list);
                     model.addAttribute("user",user);
-                    return "/articleList";
+                    return "articleList";
                 }
             }
         }
@@ -120,14 +120,28 @@ public class UserController {
 
 
     @GetMapping("/index")
-    public String welcome(HttpServletRequest httpServletRequest) {
+    public String welcome(HttpServletRequest httpServletRequest,Model model) {
 
 
         Cookie[] cookies = httpServletRequest.getCookies();
         if (cookies != null) {
             for (Cookie temp : cookies) {
                 if (temp.getName().equals("user")) {
-                    return "/userhome";
+
+//                    model.addAttribute("user",temp.getValue());
+
+
+                    User user = userService.queryByUsername(temp.getValue());
+                    user.setPassword("");
+
+
+                    List list=articleService.queryByUid(user.getUid());
+
+                    model.addAttribute("articleList",list);
+                    model.addAttribute("user",user);
+                    //return "/articleList";
+//                    model.addAttribute("")
+                    return "articleList";
                 }
             }
         }

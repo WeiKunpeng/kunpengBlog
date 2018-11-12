@@ -12,6 +12,7 @@ public class Article {
     private int uid;
     private int type;
     private String title;
+    private String desc;
     private String content;
     private String url;
     private String tags;
@@ -19,7 +20,6 @@ public class Article {
     private int stars;
     private Date create_time;
     private Date update_time;
-
 
 
     public Article() {
@@ -71,6 +71,14 @@ public class Article {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public String getContent() {
@@ -137,6 +145,7 @@ public class Article {
                 ", uid=" + uid +
                 ", type=" + type +
                 ", title='" + title + '\'' +
+                ", desc='" + desc + '\'' +
                 ", content='" + content + '\'' +
                 ", url='" + url + '\'' +
                 ", tags='" + tags + '\'' +
