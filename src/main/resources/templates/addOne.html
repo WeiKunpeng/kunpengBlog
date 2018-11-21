@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/icon.png" media="screen"/>
+    <link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" />
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" />
+    <link rel="stylesheet" href="/bootstrap-wysiwyg/index.css" type="text/css" />
+    <script src="/js/jquery.min.js"></script>
+    <!--<script src="/javascripts/jquery.min.js"></script>-->
+    <script src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="/bootstrap-wysiwyg/bootstrap-wysiwyg.js"></script>
+    <script src="/js/jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="/js/insert.js"></script>
+    <title>新建文章</title>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <!--<link rel="icon" href="../../favicon.ico" />-->
+
+    <title>鲲鹏博客</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!--&lt;!&ndash; IE10 viewport hack for Surface/desktop Windows 8 bug &ndash;&gt;-->
+    <!--<link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet" />-->
+
+    <!-- Custom styles for this template -->
+    <!--<link href="blog.css" rel="stylesheet" />-->
+
+    <!--&lt;!&ndash; Just for debugging purposes. Don't actually copy these 2 lines! &ndash;&gt;-->
+    <!--&lt;!&ndash;[if lt IE 9]>-->
+    <!--<script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]&ndash;&gt;-->
+    <!--<script src="../../assets/js/ie-emulation-modes-warning.js"></script>-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="blog-masthead">
+    <div class="container">
+        <nav class="blog-nav">
+            <a class="blog-nav-item active" href="#">Home</a>
+            <a class="blog-nav-item" href="#">New features</a>
+            <a class="blog-nav-item" href="#">Press</a>
+            <a class="blog-nav-item" href="#">New hires</a>
+            <a class="blog-nav-item" href="#">About</a>
+        </nav>
+    </div>
+</div>
+
+
+<div class="container">
+
+    <div class="blog-header">
+        <h1 class="blog-title">鲲鹏博客</h1>
+
+        <p class="lead blog-description">记录点点滴滴</p>
+    </div>
+
+    <div class="row">
+        <div class="container">
+            <div style="margin-top:50px" class="input-group input-group-lg"><span class="input-group-addon"></span><input
+                    type="text" placeholder="标题" name="title" class="form-control" id="title" /></div>
+            <div style="margin-top:20px" class="input-group input-group-lg"><span class="input-group-addon"></span><input
+                    type="text" placeholder="描述" name="desc" class="form-control" id="desc" /></div>
+            <div style="margin-top:20px" data-role="editor-toolbar" data-target="#editor" class="btn-toolbar">
+                <div class="btn-group"><a data-toggle="dropdown" title="Font" class="btn dropdown-toggle"><i
+                        class="glyphicon glyphicon-font"></i><b class="caret"></b></a>
+                    <ul class="dropdown-menu"></ul>
+                </div>
+                <div class="btn-group"><a data-toggle="dropdown" title="Font Size" class="btn dropdown-toggle"><i
+                        class="glyphicon glyphicon-text-height"></i><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+                        <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+                        <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+                    </ul>
+                </div>
+                <div class="btn-group"><a data-edit="bold" title="Bold (Ctrl/Cmd+B)" class="btn"><i class="icon-bold"></i></a><a
+                        data-edit="italic" title="Italic (Ctrl/Cmd+I)" class="btn"><i class="icon-italic"></i></a><a
+                        data-edit="strikethrough" title="Strikethrough" class="btn"><i class="icon-strikethrough"></i></a><a
+                        data-edit="underline" title="Underline (Ctrl/Cmd+U)" class="btn"><i class="icon-underline"></i></a>
+                </div>
+                <div class="btn-group"><a data-edit="insertunorderedlist" title="Bullet list" class="btn"><i
+                        class="icon-list-ul"></i></a><a data-edit="insertorderedlist" title="Number list" class="btn"><i
+                        class="icon-list-ol"></i></a><a data-edit="outdent" title="Reduce indent (Shift+Tab)" class="btn"><i
+                        class="icon-indent-left"></i></a><a data-edit="indent" title="Indent (Tab)" class="btn"><i
+                        class="icon-indent-right"></i></a></div>
+                <div class="btn-group"><a data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)" class="btn"><i
+                        class="icon-align-left"></i></a><a data-edit="justifycenter" title="Center (Ctrl/Cmd+E)" class="btn"><i
+                        class="icon-align-center"></i></a><a data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"
+                                                             class="btn"><i class="icon-align-right"></i></a><a
+                        data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)" class="btn"><i class="icon-align-justify"></i></a>
+                </div>
+                <div class="btn-group"><a data-toggle="dropdown" title="Hyperlink" class="btn dropdown-toggle"><i
+                        class="icon-link"></i></a>
+
+                    <div class="dropdown-menu input-append"><input placeholder="URL" type="text" data-edit="createLink"
+                                                                   class="span2" />
+                        <button type="button" class="btn">Add</button>
+                    </div>
+                    <a data-edit="unlink" title="Remove Hyperlink" class="btn"><i class="icon-cut"></i></a></div>
+                <div class="btn-group"><a id="pictureBtn" title="Insert picture (or just drag &amp; drop)" class="btn"><i
+                        class="icon-picture"></i></a><input type="file" data-role="magic-overlay" data-target="#pictureBtn"
+                                                            data-edit="insertImage" />
+
+                    <div class="btn-group"><a data-edit="undo" title="Undo (Ctrl/Cmd+Z)" class="btn"><i
+                            class="icon-undo"></i></a><a data-edit="redo" title="Redo (Ctrl/Cmd+Y)" class="btn"><i
+                            class="icon-repeat"></i></a></div>
+                    <input id="voiceBtn" type="text" data-edit="inserttext" x-webkit-speech="" /></div>
+            </div>
+            <div id="editor"></div>
+
+            <input id="bt1" type="button" value="预览" />
+            <input id="bt2" type="button" value="保存" />
+            <!--<button value="预览" id="bt1"></button>-->
+            <!--<button value="保存" id="bt2"></button>-->
+
+        </div>
+
+        <!--<div class="col-sm-8 blog-main">-->
+            <!--<ul class="list-group">-->
+
+                <!--&lt;!&ndash;<li class="list-group-item">&ndash;&gt;-->
+
+
+                <!--<div class="blog-post">-->
+                    <!--<h2 class="blog-post-title" th:text="${article.title}"></h2>-->
+
+                    <!--<p class="blog-post-meta" th:text="${#dates.format(article.create_time,'yyyy-MM-dd')}+' created by ' + ${user}"></p>-->
+
+                    <!--&lt;!&ndash;<p class="blog-post-meta" th:text="'created by ' + ${user.username}"></p>&ndash;&gt;-->
+
+                    <!--<p  th:text="${article.desc}"></p>-->
+                    <!--<p  th:utext="${article.content}"></p>-->
+
+
+
+
+
+
+
+                <!--</div>-->
+
+                <!--&lt;!&ndash;<p>This blog post shows a few different types of content that's supported and styled with&ndash;&gt;-->
+                <!--&lt;!&ndash;Bootstrap. Basic typography, images, and code are all supported.</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;<hr/>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur&ndash;&gt;-->
+                <!--&lt;!&ndash;ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis&ndash;&gt;-->
+                <!--&lt;!&ndash;vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet&ndash;&gt;-->
+                <!--&lt;!&ndash;fermentum.</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;<blockquote>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong>&ndash;&gt;-->
+                <!--&lt;!&ndash;ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;</blockquote>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit&ndash;&gt;-->
+                <!--&lt;!&ndash;amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<h2>Heading</h2>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non&ndash;&gt;-->
+                <!--&lt;!&ndash;commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus,&ndash;&gt;-->
+                <!--&lt;!&ndash;porta ac consectetur ac, vestibulum at eros.</p>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<h3>Sub-heading</h3>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;<pre><code>Example code block</code></pre>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis&ndash;&gt;-->
+                <!--&lt;!&ndash;euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut&ndash;&gt;-->
+                <!--&lt;!&ndash;fermentum massa.</p>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<h3>Sub-heading</h3>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean&ndash;&gt;-->
+                <!--&lt;!&ndash;lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod.&ndash;&gt;-->
+                <!--&lt;!&ndash;Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa&ndash;&gt;-->
+                <!--&lt;!&ndash;justo sit amet risus.</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;<ul>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li>Donec id elit non mi porta gravida at eget metus.</li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li>Nulla vitae elit libero, a pharetra augue.</li>&ndash;&gt;-->
+                <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra&ndash;&gt;-->
+                <!--&lt;!&ndash;augue.</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;<ol>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li>Vestibulum id ligula porta felis euismod semper.</li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.&ndash;&gt;-->
+                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>&ndash;&gt;-->
+                <!--&lt;!&ndash;</ol>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at&ndash;&gt;-->
+                <!--&lt;!&ndash;lobortis.</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&lt;!&ndash; /.blog-post &ndash;&gt;&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<div class="blog-post">&ndash;&gt;-->
+                <!--&lt;!&ndash;<h2 class="blog-post-title">Another blog post</h2>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;<blockquote>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;</blockquote>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&lt;!&ndash; /.blog-post &ndash;&gt;&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<div class="blog-post">&ndash;&gt;-->
+                <!--&lt;!&ndash;<h2 class="blog-post-title">New feature</h2>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p class="blog-post-meta">December 14, 2013 by <a href="#">Chris</a></p>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;<ul>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li>Donec id elit non mi porta gravida at eget metus.</li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li>Nulla vitae elit libero, a pharetra augue.</li>&ndash;&gt;-->
+                <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&lt;!&ndash; /.blog-post &ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+            <!--</ul>-->
+            <!--<nav>-->
+                <!--<ul class="pager">-->
+                    <!--<li><a href="#">Previous</a></li>-->
+                    <!--<li><a href="#">Next</a></li>-->
+                <!--</ul>-->
+            <!--</nav>-->
+
+        <!--</div>&lt;!&ndash; /.blog-main &ndash;&gt;-->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            <div class="sidebar-module sidebar-module-inset">
+                <h4>About</h4>
+
+                <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet
+                    fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            </div>
+            <div class="sidebar-module">
+                <h4>Archives</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#">March 2014</a></li>
+                    <li><a href="#">February 2014</a></li>
+                    <li><a href="#">January 2014</a></li>
+                    <li><a href="#">December 2013</a></li>
+                    <li><a href="#">November 2013</a></li>
+                    <li><a href="#">October 2013</a></li>
+                    <li><a href="#">September 2013</a></li>
+                    <li><a href="#">August 2013</a></li>
+                    <li><a href="#">July 2013</a></li>
+                    <li><a href="#">June 2013</a></li>
+                    <li><a href="#">May 2013</a></li>
+                    <li><a href="#">April 2013</a></li>
+                </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>Elsewhere</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ol>
+            </div>
+        </div><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<footer class="blog-footer">
+    <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a
+            href="https://twitter.com/mdo">@mdo</a>.</p>
+
+    <p>
+        <a href="#">Back to top</a>
+    </p>
+</footer>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<!--<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>-->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

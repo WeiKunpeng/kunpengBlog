@@ -31,6 +31,8 @@
     <!--[if lt IE 9]>
     <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+
+    .divcss5{ border:1px solid #F00; width:200px; height:100px}
     <![endif]-->
 </head>
 
@@ -67,9 +69,15 @@
                 <div class="blog-post">
                     <h2 class="blog-post-title" th:text="${article.title}"></h2>
 
-                    <p class="blog-post-meta" th:text="${article.create_time}"></p>
+                    <p class="blog-post-meta" th:text="${#dates.format(article.create_time,'yyyy-MM-dd')}+' created by ' + ${user}"></p>
 
-                    <p class="blog-post-meta" th:text="'created by ' + ${user.username}" /p>
+                    <!--<p class="blog-post-meta" th:text="'created by ' + ${user.username}"></p>-->
+
+                    <p  th:text="${article.desc}"></p>
+                    <p  th:utext="${article.content}"></p>
+
+
+
 
 
 

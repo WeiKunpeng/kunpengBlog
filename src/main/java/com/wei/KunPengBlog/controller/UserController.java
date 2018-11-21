@@ -91,7 +91,7 @@ public class UserController {
         }
 
 
-        return "/index";
+        return "index";
 
 
     }
@@ -172,6 +172,13 @@ public class UserController {
         return "index";
 
 
+    }
+
+
+    @GetMapping("/add")
+    public String add(){
+
+        return "addOne";
     }
 
 

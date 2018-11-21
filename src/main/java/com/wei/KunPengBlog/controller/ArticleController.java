@@ -2,8 +2,10 @@ package com.wei.KunPengBlog.controller;
 
 import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import com.wei.KunPengBlog.bean.Article;
+import com.wei.KunPengBlog.bean.User;
 import com.wei.KunPengBlog.common.Result;
 import com.wei.KunPengBlog.service.ArticleService;
+import com.wei.KunPengBlog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +13,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
+import java.sql.Timestamp;
+import java.util.*;
 
 /**
  * Created by weikunpeng on 2018/11/5.
@@ -26,6 +29,9 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
+    @Autowired
+    private UserService userService;
+
 
     /**
      * 全部文章
@@ -35,6 +41,7 @@ public class ArticleController {
 
 
     @GetMapping("/allArticle")
+    @ResponseBody
     public Result allArticle() {
 
 
@@ -144,8 +151,32 @@ public class ArticleController {
     }
 
 
-    @GetMapping("/preview")
-    public String preview(@RequestParam Article article, Model model, HttpServletRequest httpServletRequest) {
+    @PostMapping("/preview")
+    public String preview(Model model, HttpServletRequest httpServletRequest) {
+
+
+        Map map = httpServletRequest.getParameterMap();
+
+//        System.out.println("1111");
+//        System.out.println(map.size());
+//
+//        Iterator entries = map.entrySet().iterator();
+//        while (entries.hasNext()) {
+//            Map.Entry entry = (Map.Entry) entries.next();
+//            Object key = entry.getKey();
+//            String value = (String) entry.getValue();
+//            System.out.println("Key = " + key + ", Value = " + value);
+//        }
+
+        Article article = new Article();
+
+        article.setTitle(((String[]) map.get("title"))[0]);
+        article.setDesc(((String[]) map.get("desc"))[0]);
+        article.setContent(((String[]) map.get("content"))[0]);
+        article.setCreate_time(new Date());
+        article.setUpdate_time(new Date());
+
+        System.out.println(article);
 
 
         if (article != null) {
@@ -158,9 +189,12 @@ public class ArticleController {
                 for (Cookie temp : cookies) {
 
                     if (temp.getName().equals("user")) {
-                        model.addAttribute("user", temp.getValue());
-                        model.addAttribute("articl", article);
-                        return "preview";
+
+
+                        User user = userService.queryByUsername(temp.getValue());
+                        user.setPassword("");
+                        model.addAttribute("user", user);
+                        // model.addAttribute("article", article);
                     }
                 }
             }
@@ -168,18 +202,32 @@ public class ArticleController {
 
         }
 
-
-        return "#";
+        model.addAttribute("article", article);
+        return "preview";
     }
 
 
-
     @GetMapping("/insert")
-    public String insert(HttpServletRequest httpServletRequest,Model model){
+    public String insert(HttpServletRequest httpServletRequest, Model model) {
 
+
+        Cookie[] cookies = httpServletRequest.getCookies();
+
+        if (cookies != null) {
+            for (Cookie temp : cookies) {
+
+                if (temp.getName().equals("user") && temp.getValue() != null) {
+                    User user = userService.queryByUsername(temp.getValue());
+
+
+                    System.out.println(user);
+                    user.setPassword("");
+                    model.addAttribute("user", user);
+                }
+            }
+        }
 
         return "insert";
-
 
 
     }

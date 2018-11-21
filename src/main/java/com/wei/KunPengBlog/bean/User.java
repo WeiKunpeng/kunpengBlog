@@ -2,6 +2,7 @@ package com.wei.KunPengBlog.bean;
 
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,6 +13,7 @@ import java.util.Date;
  */
 
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User {
 
     private int uid;
